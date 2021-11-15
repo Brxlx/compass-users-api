@@ -1,14 +1,12 @@
 import cors from 'cors';
 import express, { json } from 'express';
 import helmet from 'helmet';
-
+import 'dotenv/config';
 import 'express-async-errors';
 // import { connect } from './database/mongo-init';
-// import { GlobalErrorHandler } from './middlewares/errors/index';
+import { GlobalErrorHandler } from 'src/shared/errors/GlobalErrorHandler';
 
 import { routes } from './routes/index';
-
-import 'dotenv/config';
 
 const app = express();
 
@@ -17,7 +15,7 @@ app.use(json({ limit: '40mb' }));
 // app.disable('x-powered-by');
 app.use(helmet());
 app.use(routes);
-// app.use(GlobalErrorHandler.globalHandler);
+app.use(GlobalErrorHandler);
 
 /* Mongo connection */
 try {
