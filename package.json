@@ -7,15 +7,18 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch --no-notify src/shared/infra/http/server.ts",
-    "db": "ts-node-dev ./node_modules/typeorm/cli --config src/shared/infra/database/typeorm/config.ts",
+    "db:generate": "npx prisma generate --schema ./src/shared/infra/database/prisma/schema.prisma",
+    "db:migrate": "npx prisma migrate dev --schema ./src/shared/infra/database/prisma/schema.prisma",
     "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored --no-comments"
   },
   "dependencies": {
+    "@prisma/client": "^3.4.2",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "helmet": "^4.6.0",
+    "prisma": "3.4.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

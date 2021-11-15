@@ -1,11 +1,12 @@
 import cors from 'cors';
 import express, { json } from 'express';
 import helmet from 'helmet';
+
 import 'dotenv/config';
 import 'express-async-errors';
-// import { connect } from './database/mongo-init';
 import { GlobalErrorHandler } from 'src/shared/errors/GlobalErrorHandler';
 
+import { setup } from '../database/prisma/connection';
 import { routes } from './routes/index';
 
 const app = express();
@@ -19,8 +20,8 @@ app.use(GlobalErrorHandler);
 
 /* Mongo connection */
 try {
-  // connect();
-  console.log('All good so far');
+  setup();
+  // console.log('All good so far');
 } catch (err) {
   throw new Error(err);
 }

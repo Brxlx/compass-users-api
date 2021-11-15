@@ -1,0 +1,15 @@
+datasource db {
+  url = env("DB_URL")
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model City {
+  id        String          @id @default(uuid())
+  name      String
+  state     String          @unique
+  @@map("cities")
+}
