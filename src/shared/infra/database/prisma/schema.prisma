@@ -1,5 +1,5 @@
 datasource db {
-  url = env("DB_URL")
+  url      = env("DB_URL")
   provider = "postgresql"
 }
 
@@ -8,8 +8,9 @@ generator client {
 }
 
 model City {
-  id        String          @id @default(uuid())
-  name      String
-  state     String          @unique
+  id    String @id @default(uuid())
+  name  String
+  state String @unique
+
   @@map("cities")
 }

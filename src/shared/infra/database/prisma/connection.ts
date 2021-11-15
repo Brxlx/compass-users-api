@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-export async function setup(): Promise<void> {
+export async function dbSetup(): Promise<void> {
   const prisma = new PrismaClient();
   try {
     await prisma.$connect();

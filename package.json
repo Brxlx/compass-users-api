@@ -9,6 +9,7 @@
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch --no-notify src/shared/infra/http/server.ts",
     "db:generate": "npx prisma generate --schema ./src/shared/infra/database/prisma/schema.prisma",
     "db:migrate": "npx prisma migrate dev --schema ./src/shared/infra/database/prisma/schema.prisma",
+    "db:format": "npx prisma format --schema ./src/shared/infra/database/prisma/schema.prisma",
     "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored --no-comments"
   },
   "dependencies": {
