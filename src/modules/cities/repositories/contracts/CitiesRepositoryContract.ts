@@ -7,6 +7,6 @@ abstract class CitiesRepsitoryContract {
 
   public getCityByState: (state: string) => Promise<City[]>;
 
-  public createCity: ({ name, state }: City) => Promise<City>;
+  public createCity: ({ name, state }: Omit<City, 'id'>) => Promise<City>;
 }
 export { CitiesRepsitoryContract };

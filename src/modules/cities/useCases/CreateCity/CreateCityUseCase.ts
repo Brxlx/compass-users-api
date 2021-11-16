@@ -16,14 +16,11 @@ class CreateCityUseCase {
     const { name, state } = data;
 
     // Check if city already exists
-    // const
+    const checkCityAlreadyExists = await this.citiesRepository.getCityByName(name);
 
-    try {
-      return this.citiesRepository.createCity({ name, state });
-      // return 'Teste';
-    } catch (err) {
-      throw new AppError('Error trying create a new city');
-    }
+    if (checkCityAlreadyExists) throw new AppError('City already exists');
+
+    return this.citiesRepository.createCity({ name, state });
   }
 }
 
