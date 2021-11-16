@@ -7,7 +7,7 @@ import { userRouter } from './users.routes';
 
 const routes = Router();
 
-routes.use(`/${process.env.APP_PREFIX}/users`, cityRouter);
-routes.use(`/${process.env.APP_PREFIX}/check`, userRouter);
+routes.use(`/${process.env.APP_PREFIX}/cities`, cityRouter);
+routes.use(`/${process.env.APP_PREFIX}/users`, userRouter);
 
 export { routes };
