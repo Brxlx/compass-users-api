@@ -12,8 +12,8 @@ model City {
   name  String
   state String
 
-  @@map("cities")
   User User[]
+  @@map("cities")
 }
 
 model User {
@@ -24,6 +24,6 @@ model User {
   age       Int
   city      City     @relation(fields: [cityId], references: [id])
   cityId    String
-  
-   @@map("users")
+
+  @@map("users")
 }
