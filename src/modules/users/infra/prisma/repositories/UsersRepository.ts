@@ -16,6 +16,10 @@ class UsersRepository implements UsersRepositoryContract {
   async createUser({ fullname, sex, birthdate, age, cityId }: User): Promise<User> {
     return this.prisma.user.create({ data: { fullname, sex, birthdate, age, cityId } });
   }
+
+  async deleteUserById(id: string): Promise<User> {
+    return this.prisma.user.delete({ where: { id } });
+  }
 }
 
 export { UsersRepository };
