@@ -14,6 +14,7 @@ async function GlobalErrorHandler(err: Error, req: Request, res: Response, _: Ne
   return res.status(500).json({
     status: 'error',
     message: 'Internal Server Error',
+    err: err.message,
   });
 }
 

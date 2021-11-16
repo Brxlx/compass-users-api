@@ -3,12 +3,12 @@ import { CitiesRepsitoryContract } from 'src/modules/cities/repositories/contrac
 import { City, PrismaClient } from '.prisma/client';
 
 class CitiesRepository implements CitiesRepsitoryContract {
-  constructor(private prisma: PrismaClient) {}
+  private prisma = new PrismaClient();
 
-  private citiesRepository = this.prisma.city;
+  // private citiesRepository = this.prisma.city;
 
   public async createCity({ name, state }: City): Promise<City> {
-    return this.citiesRepository.create({ data: { name, state } });
+    return this.prisma.city.create({ data: { name, state } });
   }
 }
 

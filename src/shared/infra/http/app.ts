@@ -1,8 +1,11 @@
+import 'express-async-errors';
+import 'reflect-metadata';
+
 import cors from 'cors';
 import express, { json } from 'express';
 import helmet from 'helmet';
 import 'dotenv/config';
-import 'express-async-errors';
+import '../../container';
 import { GlobalErrorHandler } from 'src/shared/errors/GlobalErrorHandler';
 
 import { dbSetup } from '../database/prisma/connection';
@@ -17,5 +20,4 @@ app.use(routes);
 app.use(GlobalErrorHandler);
 
 app.use(dbSetup);
-
 export { app };

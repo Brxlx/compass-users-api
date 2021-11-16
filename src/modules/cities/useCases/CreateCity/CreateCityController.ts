@@ -1,13 +1,18 @@
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
-import { PrismaClient } from '.prisma/client';
+import { City } from '.prisma/client';
+
+import { CreateCityUseCase } from './CreateCityUseCase';
 
 class CreateCityController {
   async handle(req: Request, res: Response): Promise<Response> {
-    const { name, state } = req.body;
-    const prisma = new PrismaClient();
-    await prisma.city.count();
-    return res.send('Foi');
+    const { name, state } = req.body as City;
+    const createCityUseCase = container.resolve(CreateCityUseCase);
+
+    const responseFromCreateCity = await createCityUseCase.execute({ name, state });
+
+    return res.status(201).json(responseFromCreateCity);
   }
 }
 
