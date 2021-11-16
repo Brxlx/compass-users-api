@@ -13,8 +13,8 @@ class UsersRepository implements UsersRepositoryContract {
     return this.prisma.user.findUnique({ where: { id } });
   }
 
-  async createUser({ fullname, sex, birthdate, age, cityId }: User): Promise<User> {
-    return this.prisma.user.create({ data: { fullname, sex, birthdate, age, cityId } });
+  async createUser({ fullname, genre, birthdate, age, cityId }: User): Promise<User> {
+    return this.prisma.user.create({ data: { fullname, genre, birthdate, age, cityId } });
   }
 
   async changeUserNameById(id: string, fullname: string): Promise<User> {

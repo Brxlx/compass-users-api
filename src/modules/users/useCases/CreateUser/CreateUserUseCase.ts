@@ -12,14 +12,14 @@ class CreateUserUseCase {
     private usersRepository: UsersRepositoryContract
   ) {}
 
-  async execute({ fullname, age, sex, birthdate, cityId }: Omit<User, 'id'>): Promise<User> {
-    if (!fullname || !age || !sex || !birthdate || !cityId)
+  async execute({ fullname, age, genre, birthdate, cityId }: Omit<User, 'id'>): Promise<User> {
+    if (!fullname || !age || !genre || !birthdate || !cityId)
       throw new AppError('Missing required argument(s)');
 
     const createUser = await this.usersRepository.createUser({
       fullname,
       age,
-      sex,
+      genre,
       birthdate,
       cityId,
     });
