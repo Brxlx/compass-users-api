@@ -7,15 +7,15 @@ Built in Node.js + TypeScript 💜
 ### Important:
 
 - Use Node `v14.x` or higher.
-- Install all dependencies at first try. Use `yarn`
-<!-- - Run `yarn commitizen init cz-conventional-changelog --yarn --dev --exact` for get the commit cli. -->
+- Install all dependencies at first try. Use `yarn`.
+
 
 ### Code style guide
 
-  - Standard by `airbnb` 
+  - Standard by `airbnb` .
   - Default spacer is `space`.
   - Space size identation: `2`.
-  - Default line breaker: `LF`
+  - Default line breaker: `LF`.
 
   Other settings will automatically follow the `.editorconfig` file.
 
@@ -30,3 +30,14 @@ Built in Node.js + TypeScript 💜
   - `yarn db:migrate` to run all the migrations.
   - `yarn test` to run the tests with `JEST`.
   - `yarn build` to generate the build `.js` files with babel.
+
+
+### Database
+
+  - `PostgreSQL`.
+  - To correctly run the application on database, make sure that exists a database named `compass` with the `api` *schema*.
+  - Make sure to run the `yarn db:migrate` to run all the migrations!
+
+### Documentation
+
+  - Provided by `swagger`.

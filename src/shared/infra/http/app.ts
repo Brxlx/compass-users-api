@@ -14,10 +14,22 @@ import { routes } from './routes/index';
 const app = express();
 
 app.use(cors());
-app.use(json({ limit: '40mb' }));
+
+// Json limit
+app.use(json({ limit: '10mb' }));
+
+// Security
 app.use(helmet());
+
+// Load app routes
 app.use(routes);
+
+// Set up custom Error Handler
 app.use(GlobalErrorHandler);
 
-app.use(dbSetup);
+// DB Connection
+dbSetup().then(() => {
+  console.log('database OK');
+});
+
 export { app };
