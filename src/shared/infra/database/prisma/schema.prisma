@@ -13,4 +13,17 @@ model City {
   state String
 
   @@map("cities")
+  User User[]
+}
+
+model User {
+  id        String   @id @default(uuid())
+  fullname  String   @unique
+  sex       String
+  birthdate DateTime
+  age       Int
+  city      City     @relation(fields: [cityId], references: [id])
+  cityId    String
+  
+   @@map("users")
 }
