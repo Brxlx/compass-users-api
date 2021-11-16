@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { CHangeUserNameByIdController } from 'src/modules/users/useCases/ChangeUserName/ChangeUserNameController';
 import { CreateUserController } from 'src/modules/users/useCases/CreateUser/CreateUserController';
 import { DeleteUserByIdController } from 'src/modules/users/useCases/DeleteUserById/DeleteUserByIdController';
 import { GetUserByIdController } from 'src/modules/users/useCases/GetUserById/GetUserByIdController';
@@ -13,12 +14,14 @@ const userRouter = Router();
 const getUserByNameController = container.resolve(GetUserByNameController);
 const createUserController = container.resolve(CreateUserController);
 const getUserByIdController = container.resolve(GetUserByIdController);
+const changeUserNameById = container.resolve(CHangeUserNameByIdController);
 const deleteUserByIdController = container.resolve(DeleteUserByIdController);
 
 // REST verbs operations
 userRouter.get('/user/fullname/:fullname', getUserByNameController.handle);
 userRouter.get('/user/id/:id', getUserByIdController.handle);
 userRouter.post('/', createUserController.handle);
+userRouter.patch('/user/id/:id', changeUserNameById.handle);
 userRouter.delete('/user/id/:id', deleteUserByIdController.handle);
 
 export { userRouter };
