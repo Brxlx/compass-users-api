@@ -7,11 +7,11 @@ import { GetUserByIdUseCase } from './GetUserByIdUseCase';
 
 class GetUserByIdController {
   async handle(req: Request, res: Response): Promise<Response> {
-    const { fullname } = req.params;
+    const { id } = req.params;
 
     const getUserByIdUseCase = container.resolve(GetUserByIdUseCase);
 
-    const getUserById = await getUserByIdUseCase.execute(fullname);
+    const getUserById = await getUserByIdUseCase.execute(id);
 
     return res.status(200).json(getUserById);
   }

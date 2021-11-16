@@ -12,10 +12,10 @@ class GetUserByIdUseCase {
     private usersRepository: UsersRepositoryContract
   ) {}
 
-  async execute(fullname: string): Promise<User> {
-    if (!fullname) throw new AppError('Missing required fullname argument');
+  async execute(id: string): Promise<User> {
+    if (!id) throw new AppError('Missing required id argument');
 
-    const user = await this.usersRepository.getUserByName(fullname);
+    const user = await this.usersRepository.getUserById(id);
 
     if (!user) throw new AppError('User not found', 404);
 
