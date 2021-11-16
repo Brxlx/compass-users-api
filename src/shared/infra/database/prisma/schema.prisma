@@ -19,8 +19,8 @@ model City {
 model User {
   id        String   @id @default(uuid())
   fullname  String   @unique
-  sex       String
-  birthdate DateTime  @db.Date
+  genre     String
+  birthdate DateTime @db.Date
   age       Int
   city      City     @relation(fields: [cityId], references: [id])
   cityId    String

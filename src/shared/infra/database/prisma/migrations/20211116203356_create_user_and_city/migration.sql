@@ -1,21 +1,18 @@
-/*
-  Warnings:
+-- CreateTable
+CREATE TABLE "cities" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "state" TEXT NOT NULL,
 
-  - You are about to drop the `User` table. If the table is not empty, all the data it contains will be lost.
-
-*/
--- DropForeignKey
-ALTER TABLE "User" DROP CONSTRAINT "User_cityId_fkey";
-
--- DropTable
-DROP TABLE "User";
+    CONSTRAINT "cities_pkey" PRIMARY KEY ("id")
+);
 
 -- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
     "fullname" TEXT NOT NULL,
-    "sex" TEXT NOT NULL,
-    "birthdate" TIMESTAMP(3) NOT NULL,
+    "genre" TEXT NOT NULL,
+    "birthdate" DATE NOT NULL,
     "age" INTEGER NOT NULL,
     "cityId" TEXT NOT NULL,
 
