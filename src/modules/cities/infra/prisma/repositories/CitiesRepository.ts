@@ -6,7 +6,11 @@ class CitiesRepository implements CitiesRepsitoryContract {
   private prisma = new PrismaClient();
 
   public getCityByName(name: string): Promise<City> {
-    return this.prisma.city.findFirst({ where: { name: name.toLowerCase() } });
+    return this.prisma.city.findFirst({ where: { name } });
+  }
+
+  public getCityByState(state: string): Promise<City[]> {
+    return this.prisma.city.findMany({ where: { state } });
   }
 
   public async createCity({ name, state }: City): Promise<City> {
