@@ -18,6 +18,11 @@ class CreateUserUseCase {
     if (!fullname || !age || !genre || !birthdate || !cityId)
       throw new AppError('Missing required argument(s)');
 
+    // Check if user name already exists
+    const checkUserExists = await this.usersRepository.getUserByName(fullname);
+
+    if (checkUserExists) throw new AppError('User already exists');
+
     const createUser = await this.usersRepository.createUser({
       fullname,
       age,
