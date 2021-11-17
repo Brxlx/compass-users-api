@@ -4,10 +4,10 @@ import 'reflect-metadata';
 import cors from 'cors';
 import express, { json } from 'express';
 import helmet from 'helmet';
+
 import 'dotenv/config';
 import '../../container';
-import { GlobalErrorHandler } from 'src/shared/errors/GlobalErrorHandler';
-
+import { GlobalErrorHandler } from '../../errors/GlobalErrorHandler';
 import { dbSetup } from '../database/prisma/connection';
 import { routes } from './routes/index';
 

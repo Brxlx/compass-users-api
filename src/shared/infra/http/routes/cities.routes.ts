@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { GetCityByNameController } from 'src/modules/cities/useCases/GetCityByName/GetCityByNameController';
-import { GetCityByState } from 'src/modules/cities/useCases/GetCityByState/GetCityByStateController';
 import { container } from 'tsyringe';
 
 import { CreateCityController } from '../../../../modules/cities/useCases/CreateCity/CreateCityController';
+import { GetCityByNameController } from '../../../../modules/cities/useCases/GetCityByName/GetCityByNameController';
+import { GetCityByState } from '../../../../modules/cities/useCases/GetCityByState/GetCityByStateController';
 
 // Instance of cities Router
 const cityRouter = Router();

@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { CHangeUserNameByIdController } from 'src/modules/users/useCases/ChangeUserName/ChangeUserNameController';
-import { CreateUserController } from 'src/modules/users/useCases/CreateUser/CreateUserController';
-import { DeleteUserByIdController } from 'src/modules/users/useCases/DeleteUserById/DeleteUserByIdController';
-import { GetUserByIdController } from 'src/modules/users/useCases/GetUserById/GetUserByIdController';
 import { container } from 'tsyringe';
 
+import { CHangeUserNameByIdController } from '../../../../modules/users/useCases/ChangeUserName/ChangeUserNameController';
+import { CreateUserController } from '../../../../modules/users/useCases/CreateUser/CreateUserController';
+import { DeleteUserByIdController } from '../../../../modules/users/useCases/DeleteUserById/DeleteUserByIdController';
+import { GetUserByIdController } from '../../../../modules/users/useCases/GetUserById/GetUserByIdController';
 import { GetUserByNameController } from '../../../../modules/users/useCases/GetUserByName/GetUserByNameController';
 
 // Instance of cities Router
