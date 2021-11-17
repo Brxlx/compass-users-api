@@ -1,7 +1,7 @@
 {
   "name": "compass-users-api",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/shared/infra/http/server.ts",
   "repository": "git@github.com:Brxlx/compass-users-api.git",
   "author": "Bruno Santos",
   "license": "MIT",
