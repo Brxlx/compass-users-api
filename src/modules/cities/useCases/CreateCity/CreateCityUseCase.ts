@@ -4,6 +4,7 @@ import AppError from '../../../../shared/errors/AppError';
 
 import { City } from '.prisma/client';
 
+import { ICreateCityDTO } from '../../dtos/ICreateCityDTO';
 import { CitiesRepsitoryContract } from '../../repositories/contracts/CitiesRepositoryContract';
 
 @injectable()
@@ -13,7 +14,7 @@ class CreateCityUseCase {
     private citiesRepository: CitiesRepsitoryContract
   ) {}
 
-  async execute(data: Omit<City, 'id'>): Promise<City> {
+  async execute(data: ICreateCityDTO): Promise<City> {
     const { name, state } = data;
 
     // Check if city already exists

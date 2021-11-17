@@ -4,6 +4,7 @@ import AppError from '../../../../shared/errors/AppError';
 
 import { User } from '.prisma/client';
 
+import { ICreateUserDTO } from '../../dtos/ICreateUserDTO';
 import { UsersRepositoryContract } from '../../repositories/contracts/UsersRepositoryContract';
 
 @injectable()
@@ -13,7 +14,7 @@ class CreateUserUseCase {
     private usersRepository: UsersRepositoryContract
   ) {}
 
-  async execute({ fullname, age, genre, birthdate, cityId }: Omit<User, 'id'>): Promise<User> {
+  async execute({ fullname, age, genre, birthdate, cityId }: ICreateUserDTO): Promise<User> {
     if (!fullname || !age || !genre || !birthdate || !cityId)
       throw new AppError('Missing required argument(s)');
 
