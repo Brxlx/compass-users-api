@@ -1,16 +1,7 @@
 -- CreateTable
-CREATE TABLE "cities" (
-    "id" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
-    "state" TEXT NOT NULL,
-
-    CONSTRAINT "cities_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
-    "fullname" TEXT NOT NULL,
+    "fullname" CITEXT NOT NULL,
     "genre" TEXT NOT NULL,
     "birthdate" DATE NOT NULL,
     "age" INTEGER NOT NULL,
