@@ -9,8 +9,8 @@ generator client {
 
 model City {
   id    String @id @default(uuid())
-  name  String
-  state String
+  name  String @db.Citext
+  state String @db.Char(2)
 
   User User[]
   @@map("cities")

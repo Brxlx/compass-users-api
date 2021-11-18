@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS citext SCHEMA public;
+
 -- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
