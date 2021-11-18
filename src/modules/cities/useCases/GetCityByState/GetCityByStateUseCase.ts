@@ -16,7 +16,7 @@ class GetCityByStateUseCase {
   async execute(state: string): Promise<City[]> {
     if (!state) throw new AppError('Missing required name argument');
 
-    const city = await this.citiesRepository.getCityByState(state);
+    const city = await this.citiesRepository.getCityByState(state.toLowerCase());
 
     if (!city) throw new AppError('City not found', 404);
 

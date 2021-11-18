@@ -22,7 +22,7 @@ class CreateCityUseCase {
 
     if (checkCityAlreadyExists) throw new AppError('City already exists');
 
-    return this.citiesRepository.createCity({ name, state });
+    return this.citiesRepository.createCity({ name, state: state.toLowerCase() });
   }
 }
 
