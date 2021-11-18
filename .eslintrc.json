@@ -1,7 +1,8 @@
 {
   "env": {
     "es2021": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": [
     "airbnb-base",
@@ -89,7 +90,7 @@
     "max-len": [
       2,
       125,
-      {"ignoreStrings": true }
+      {"ignoreStrings": true, "ignoreComments": true }
     ]
   }
 }
