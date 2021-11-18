@@ -8,6 +8,7 @@ Built in Node.js + TypeScript 💜
 
 - Use Node `v14.x` or higher.
 - Install all dependencies at first try. Use `yarn`.
+- Follow the instructions on the `Database` section.
 
 
 ### Code style guide
@@ -35,12 +36,7 @@ Built in Node.js + TypeScript 💜
 ### Database
 
   - `PostgreSQL`.
-  - To correctly run the application on database, make sure that exists a database named `compass` with the `public` *schema!*.
-  - Before run the migrations, **make sure to create the database on public schema and activate the citext extension**
-
-      ```sql
-      CREATE EXTENSION citext SCHEMA public;
-      ```
+  - To correctly run the application on database, make sure to pass the `public` *schema!* on the url string connection.
   - Make sure to run the `yarn db:migrate` to run all the migrations!
 
 ### Documentation
