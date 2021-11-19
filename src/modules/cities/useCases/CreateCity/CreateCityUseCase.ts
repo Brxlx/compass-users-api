@@ -4,6 +4,7 @@ import AppError from '../../../../shared/errors/AppError';
 
 import { City } from '.prisma/client';
 
+import { states } from '../../../../shared/infra/utils/states';
 import { ICreateCityDTO } from '../../dtos/ICreateCityDTO';
 import { CitiesRepsitoryContract } from '../../repositories/contracts/CitiesRepositoryContract';
 
@@ -21,6 +22,9 @@ class CreateCityUseCase {
     const checkCityAlreadyExists = await this.citiesRepository.getCityByName(name);
 
     if (checkCityAlreadyExists) throw new AppError('City already exists');
+
+    // Check if state is valid accoring to defined state array
+    if (states.indexOf(state) === -1) throw new AppError('Invalid state');
 
     return this.citiesRepository.createCity({ name, state: state.toLowerCase() });
   }
