@@ -23,7 +23,6 @@
     "helmet": "^4.6.0",
     "prisma": "3.4.2",
     "reflect-metadata": "^0.1.13",
-    "swagger-autogen": "^2.12.6",
     "swagger-ui-express": "^4.1.6",
     "tsyringe": "^4.6.0",
     "uuid": "^8.3.2"
