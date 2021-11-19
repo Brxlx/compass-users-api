@@ -221,7 +221,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "items": {
                     "$ref": "#/components/schemas/City"
                   }
@@ -256,7 +255,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "items": {
                     "$ref": "#/components/schemas/City"
                   }
@@ -291,7 +289,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "items": {
                     "$ref": "#/components/schemas/City"
                   }
