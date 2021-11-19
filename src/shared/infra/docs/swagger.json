@@ -1,0 +1,231 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Compass Users API",
+    "description": "The Compass test API to manipulate Client CRUD via REST",
+    "termsOfService": "http://localhost:3000/terms",
+    "contact": {
+      "email": "brcesar19@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/v1",
+      "description": "Development API environment"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Create a new User",
+        "description": "Endpoint to create a new User",
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Error trying to create a new User"
+          },
+          "201": {
+            "description": "User created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/user/id/{id}": {
+      "get": {
+        "summary": "Find user by id",
+        "description": "Endpoint to get user by id",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "user id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Error trying to update user"
+          },
+          "200": {
+            "description": "User updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update username by id",
+        "description": "Endpoint to edit user",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "user id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Error trying to update user"
+          },
+          "200": {
+            "description": "User updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a user by id",
+        "description": "Endpoint to delete user",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "user id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Error trying to update user"
+          },
+          "200": {
+            "description": "User updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/user/fullname/{fullname}": {
+      "get": {
+        "summary": "Find a user by fullname",
+        "description": "Endpoint to get a user by fullname",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "fullname",
+            "in": "path",
+            "description": "user fullname",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Error trying to update user"
+          },
+          "200": {
+            "description": "User updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "fullname": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          },
+          "genre": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cityId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fullname",
+          "age",
+          "genre",
+          "birthdate"
+        ]
+      }
+    }
+  }
+}
