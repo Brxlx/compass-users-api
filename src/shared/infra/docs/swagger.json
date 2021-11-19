@@ -69,10 +69,10 @@
         ],
         "responses": {
           "400": {
-            "description": "Error trying to update user"
+            "description": "Error trying to find user"
           },
           "200": {
-            "description": "User updated",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -145,10 +145,10 @@
         ],
         "responses": {
           "400": {
-            "description": "Error trying to update user"
+            "description": "Error trying to delete user"
           },
           "200": {
-            "description": "User updated",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -179,15 +179,121 @@
         ],
         "responses": {
           "400": {
-            "description": "Error trying to update user"
+            "description": "User not found"
           },
           "200": {
-            "description": "User updated",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
                   "items": {
                     "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities": {
+      "post": {
+        "summary": "Create a new city",
+        "description": "Endpoint to create a new City",
+        "tags": [
+          "Cities"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/City"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Error trying to create a new User"
+          },
+          "201": {
+            "description": "City created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/City"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/name/{name}": {
+      "get": {
+        "summary": "Create a new city",
+        "description": "Endpoint to get city by name",
+        "tags": [
+          "Cities"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "city name",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Error trying to find city"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/City"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/state/{state}": {
+      "get": {
+        "summary": "Find cities by state",
+        "description": "Endpoint to find cities by state",
+        "tags": [
+          "Cities"
+        ],
+        "parameters": [
+          {
+            "name": "state",
+            "in": "path",
+            "description": "state",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Error trying to find city"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "items": {
+                    "$ref": "#/components/schemas/City"
                   }
                 }
               }
@@ -224,6 +330,21 @@
           "age",
           "genre",
           "birthdate"
+        ]
+      },
+      "City": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "state"
         ]
       }
     }
