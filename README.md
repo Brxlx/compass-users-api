@@ -8,6 +8,7 @@ Built in Node.js + TypeScript 💜
 
 - Use Node `v14.x` or higher.
 - Install all dependencies at first try. Use `yarn`.
+- Create a `.env` file based on `.env.example` on the root.
 - Follow the instructions on the `Database` section.
 - The default port is `3000`.
 
