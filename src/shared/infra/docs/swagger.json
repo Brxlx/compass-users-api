@@ -28,6 +28,17 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "fullname": "Test User",
+                    "age": 20,
+                    "birthdate": "2000-10-09T00:00:00Z",
+                    "genre": "male",
+                    "cityId": "ef86f99e-e891-40b9-8883-6717ec8d032e"
+                  }
+                }
               }
             }
           }
@@ -41,7 +52,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "items": {
                     "$ref": "#/components/schemas/User"
                   }
@@ -208,6 +218,14 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/City"
+              },
+              "examples": {
+                "city": {
+                  "value": {
+                    "name": "São Paulo",
+                    "state": "sp"
+                  }
+                }
               }
             }
           }
