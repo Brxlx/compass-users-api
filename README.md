@@ -43,3 +43,5 @@ Built in Node.js + TypeScript 💜
 ### Documentation
 
   - Provided by `swagger`.
+  - Visual Runtime to execute all the endpoints of the application.
+  - Access url via `http://localhost:3000/v1/docs`.
