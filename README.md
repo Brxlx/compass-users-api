@@ -9,6 +9,7 @@ Built in Node.js + TypeScript 💜
 - Use Node `v14.x` or higher.
 - Install all dependencies at first try. Use `yarn`.
 - Follow the instructions on the `Database` section.
+- The default port is `3000`.
 
 
 ### Code style guide

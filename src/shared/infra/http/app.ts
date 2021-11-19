@@ -7,6 +7,7 @@ import helmet from 'helmet';
 
 import 'dotenv/config';
 import '../../container';
+
 import { GlobalErrorHandler } from '../../errors/GlobalErrorHandler';
 import { dbSetup } from '../database/prisma/connection';
 import { routes } from './routes/index';
@@ -21,8 +22,8 @@ app.use(json({ limit: '10mb' }));
 // Security
 app.use(helmet());
 
-// Load app routes
-app.use(routes);
+// Load app routes and version
+app.use(`/${process.env.APP_PREFIX}`, routes);
 
 // Set up custom Error Handler
 app.use(GlobalErrorHandler);
