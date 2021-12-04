@@ -1,4 +1,4 @@
-import { UsersRepositoryContract } from 'src/modules/users/repositories/contracts/UsersRepositoryContract';
+import { UsersRepositoryContract } from '../../../repositories/contracts/UsersRepositoryContract';
 
 import { PrismaClient, User } from '.prisma/client';
 
